@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Raw and processed datasets
+data/raw/
+data/processed/
+
+# Data files
+*.csv
+*.xlsx
+*.xls
+*.xpt
+
+# Environment variables
+.env
+
+# OS
+.DS_Store
+Thumbs.db
