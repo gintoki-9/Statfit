@@ -1,0 +1,131 @@
+{
+  "model_type": "RandomForestClassifier",
+  "model_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 5,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 300,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "features": [
+    "RIDAGEYR",
+    "RIAGENDR",
+    "BMXBMI",
+    "BMXWAIST",
+    "systolic_avg",
+    "diastolic_avg"
+  ],
+  "target": "Existing self-reported doctor-diagnosed diabetes status: DIQ010=1 is positive; DIQ010=2 is negative; all other or missing responses are excluded. This is not future diabetes incidence.",
+  "dataset": "NHANES 2021-2023 local XPT files",
+  "preparation_counts": {
+    "demo_rows": 11933,
+    "demographics_body_diabetes_rows": 8727,
+    "excluded_target_response_rows": 234,
+    "excluded_under_18_rows": 2380,
+    "excluded_incomplete_feature_rows": 417,
+    "adult_complete_case_rows": 5696,
+    "positive_target_rows": 781,
+    "negative_target_rows": 4915
+  },
+  "split_seed": 2026,
+  "split_counts": {
+    "train": {
+      "rows": 3417,
+      "positive": 469,
+      "negative": 2948
+    },
+    "validation": {
+      "rows": 1139,
+      "positive": 156,
+      "negative": 983
+    },
+    "test": {
+      "rows": 1140,
+      "positive": 156,
+      "negative": 984
+    }
+  },
+  "participant_split_integrity": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "split_manifest": {
+    "seed": 2026,
+    "proportions": {
+      "train": 0.6,
+      "validation": 0.2,
+      "test": 0.2
+    },
+    "membership": {
+      "train": {
+        "rows": 3417,
+        "participant_id_sha256": "cc30488ee39959f48af39a99e6beceea52ad51f0c31ac7f23c35a3de00f937af"
+      },
+      "validation": {
+        "rows": 1139,
+        "participant_id_sha256": "25b6f04a9e2ba1511ea807344ec154522357c6428ff7e5fbfc4670b83f6dac4a"
+      },
+      "test": {
+        "rows": 1140,
+        "participant_id_sha256": "95257a7864558f8ceb5e3b0d4441d985b0b151d607452cf868e183b0db862b5b"
+      }
+    }
+  },
+  "threshold": 0.45,
+  "threshold_selection": {
+    "criterion": "maximum validation F1 over thresholds 0.10 through 0.50 in 0.05 increments",
+    "tie_break": "higher validation precision, then higher threshold",
+    "selected_validation_metrics": {
+      "threshold": 0.45,
+      "precision": 0.2614213197969543,
+      "recall": 0.6602564102564102,
+      "specificity": 0.7039674465920651,
+      "f1": 0.37454545454545457,
+      "accuracy": 0.6979806848112379,
+      "confusion_matrix": [
+        [
+          692,
+          291
+        ],
+        [
+          53,
+          103
+        ]
+      ]
+    },
+    "threshold_grid": [
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ]
+  },
+  "configuration_selection_criterion": "highest validation F1 at each configuration's validation-selected threshold",
+  "evaluation_method": "model/configuration and threshold selected on training/validation; test evaluated once as development data",
+  "source_files": {
+    "DEMO_L.xpt": "ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23",
+    "BMX_L.xpt": "44440c416d9ad709e8b1708a5975378ab4d5b18edc39eb5015c2ae7186500170",
+    "DIQ_L.xpt": "9535a023673ae869afae19d842d8679e06f6a464606ac15900686b41ef05090f",
+    "BPXO_L.xpt": "189aa9bed689d2c69cf8d780b01de85073276fea5694dd52cdf696229f9054a6"
+  }
+}

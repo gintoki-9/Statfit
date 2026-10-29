@@ -1,0 +1,16 @@
+{
+    "model_type": "RandomForestClassifier",
+    "features": [
+        "RIDAGEYR",
+        "RIAGENDR",
+        "BMXBMI",
+        "BMXWAIST",
+        "systolic_avg",
+        "diastolic_avg"
+    ],
+    "threshold": 0.45,
+    "target": "Self-reported doctor-diagnosed diabetes status",
+    "dataset": "NHANES 2021-2023",
+    "purpose": "Exploratory research prototype; not clinically validated",
+    "saved_at": "2026-10-10T23:23:05.159860"
+}

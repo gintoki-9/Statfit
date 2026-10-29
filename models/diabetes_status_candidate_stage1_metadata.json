@@ -1,0 +1,103 @@
+{
+  "model_type": "RandomForestClassifier",
+  "model_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 5,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 300,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "features": [
+    "RIDAGEYR",
+    "RIAGENDR",
+    "BMXBMI",
+    "BMXWAIST",
+    "systolic_avg",
+    "diastolic_avg"
+  ],
+  "target": "Existing self-reported doctor-diagnosed diabetes status: DIQ010=1 is positive; DIQ010=2 is negative; all other or missing responses are excluded. This is not future diabetes incidence.",
+  "dataset": "NHANES 2021-2023 local XPT files",
+  "preparation_counts": {
+    "demo_rows": 11933,
+    "demographics_body_diabetes_rows": 8727,
+    "excluded_target_response_rows": 234,
+    "excluded_under_18_rows": 2380,
+    "excluded_incomplete_feature_rows": 417,
+    "adult_complete_case_rows": 5696,
+    "positive_target_rows": 781,
+    "negative_target_rows": 4915
+  },
+  "split_seed": 2026,
+  "split_counts": {
+    "train": {
+      "rows": 3417,
+      "positive": 469,
+      "negative": 2948
+    },
+    "validation": {
+      "rows": 1139,
+      "positive": 156,
+      "negative": 983
+    },
+    "test": {
+      "rows": 1140,
+      "positive": 156,
+      "negative": 984
+    }
+  },
+  "participant_split_integrity": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "threshold": 0.45,
+  "threshold_selection": {
+    "criterion": "maximum validation F1 over thresholds 0.10 through 0.50 in 0.05 increments",
+    "tie_break": "higher validation precision, then higher threshold",
+    "selected_validation_metrics": {
+      "threshold": 0.45,
+      "precision": 0.2614213197969543,
+      "recall": 0.6602564102564102,
+      "specificity": 0.7039674465920651,
+      "f1": 0.37454545454545457,
+      "accuracy": 0.6979806848112379,
+      "confusion_matrix": [
+        [
+          692,
+          291
+        ],
+        [
+          53,
+          103
+        ]
+      ]
+    },
+    "threshold_grid": [
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ]
+  },
+  "configuration_selection_criterion": "highest validation F1 at each configuration's validation-selected threshold",
+  "evaluation_method": "model/configuration and threshold selected on training/validation; test evaluated once as development data"
+}

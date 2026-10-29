@@ -1,0 +1,70 @@
+{
+  "evaluation_label": "development evaluation; this test participant set was previously examined",
+  "target_definition": "Existing self-reported doctor-diagnosed diabetes status: DIQ010=1 is positive; DIQ010=2 is negative; all other or missing responses are excluded. This is not future diabetes incidence.",
+  "test_samples": 1140,
+  "roc_auc": 0.7930086512403586,
+  "brier_score": 0.14884233028280192,
+  "precision": 0.2868632707774799,
+  "recall": 0.6858974358974359,
+  "specificity": 0.7296747967479674,
+  "f1": 0.4045368620037807,
+  "accuracy": 0.7236842105263158,
+  "threshold": 0.45,
+  "confusion_matrix": [
+    [
+      718,
+      266
+    ],
+    [
+      49,
+      107
+    ]
+  ],
+  "calibration": {
+    "method": "quantile-binned calibration curve; descriptive, no calibrator fitted",
+    "bins": [
+      {
+        "mean_predicted_probability": 0.012484439264024172,
+        "observed_positive_rate": 0.008771929824561403
+      },
+      {
+        "mean_predicted_probability": 0.04267121163976834,
+        "observed_positive_rate": 0.017543859649122806
+      },
+      {
+        "mean_predicted_probability": 0.08544440261768543,
+        "observed_positive_rate": 0.017543859649122806
+      },
+      {
+        "mean_predicted_probability": 0.15283486048366166,
+        "observed_positive_rate": 0.05263157894736842
+      },
+      {
+        "mean_predicted_probability": 0.2389319320902648,
+        "observed_positive_rate": 0.07017543859649122
+      },
+      {
+        "mean_predicted_probability": 0.33117749839119515,
+        "observed_positive_rate": 0.10526315789473684
+      },
+      {
+        "mean_predicted_probability": 0.4249882249093415,
+        "observed_positive_rate": 0.21929824561403508
+      },
+      {
+        "mean_predicted_probability": 0.5228896450569885,
+        "observed_positive_rate": 0.15789473684210525
+      },
+      {
+        "mean_predicted_probability": 0.6194495011494705,
+        "observed_positive_rate": 0.3508771929824561
+      },
+      {
+        "mean_predicted_probability": 0.7429807754936322,
+        "observed_positive_rate": 0.3684210526315789
+      }
+    ],
+    "mean_absolute_bin_gap": 0.18054314384644535
+  },
+  "calibration_limit": "descriptive only; no calibration model was fit on this test set"
+}
